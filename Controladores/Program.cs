@@ -1,6 +1,7 @@
 ﻿using EduRecuperacionC.Dtos;
 using EduRecuperacionC.Servicios;
 using EduRecuperacionC.Util;
+using System.Collections;
 
 namespace EduRecuperacionC
 {
@@ -15,12 +16,20 @@ namespace EduRecuperacionC
         public static string ficheroAlumnoCompleto = String.Concat(ficheroAlumno, "fichero.txt");
 
         public static List<AlumnoDto> listaAlumno = new List<AlumnoDto>();
+        public static ArrayList listaArray = new ArrayList(); 
         public static void Main(string[] args)
         {
 
             MenuInterfaz mi = new MenuImplementacion();
             FicheroInterfaz fi = new FicheroImplementacion();
             OperativaInterfaz oi = new OperativaImplementacion();
+
+            fi.cargaInicial();
+            foreach (String[] mostrar in Program.listaArray)
+            {
+                Console.WriteLine(mostrar[0]);
+               
+            }
 
             int opcionSeleccionada;
             bool cerrarMenu = true;
@@ -65,6 +74,11 @@ namespace EduRecuperacionC
                             Console.WriteLine("");
                             Console.WriteLine("[INFO] Se mostrara el listado de los alumnos.");
                             fi.crearAlumnoFichero("[INFO] Se mostrara el listado de los alumnos .");
+                            break;
+                        case 5:
+                            Console.WriteLine("");
+                            Console.WriteLine("[INFO] Se modificara los campos.");
+                            oi.modificarAlumno();
                             break;
                         default:
                             Console.WriteLine("");

@@ -42,11 +42,11 @@ namespace EduRecuperacionC.Servicios
             try
             {
                 sw = new StreamWriter(Program.ficheroAlumnoCompleto, true);
-               foreach(AlumnoDto mostrar in Program.listaAlumno)
+                foreach (AlumnoDto mostrar in Program.listaAlumno)
                 {
                     sw.WriteLine(mostrar.ToString(';'));
                 }
-                
+
 
             }
             catch (Exception ex)
@@ -56,17 +56,40 @@ namespace EduRecuperacionC.Servicios
             }
             finally
             {
-                if(sw != null)
+                if (sw != null)
                 {
                     sw.Close();
                 }
-                
+
             }
 
+        }
+        public void cargaInicial()
+        {
+            try
+            {
+                StreamReader sr = new StreamReader(Program.ficheroAlumnoCompleto);
+                string linea;
 
+                while((linea = sr.ReadLine()) != null){
 
+                    string[] separado = linea.Split(";");
 
+                    foreach (string separado2 in separado)
+                    {
+                        string[] campos = separado2.Split(";");
+                        Program.listaArray.Add(campos);
 
+                    }
+
+                }
+                sr.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("[INFO] Se ha detectado un error en el fichero estamos solucionándolo, vuelva en 15 min.");
+
+            }
 
 
         }

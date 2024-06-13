@@ -12,10 +12,11 @@ namespace EduRecuperacionC.Dtos
         string nombre = "aaaaa";
         string apellido1 = "aaaaa";
         string apellido2 = "aaaaa";
-        string dni;
-        string telefono;
+        string dni = "aaaaa";
+        string telefono = "aaaaa";
         string email = "aaaaa";
         string direccion = "aaaaa";
+        DateTime fechaNac = DateTime.Now;
 
         public int IdAlumno { get => idAlumno; set => idAlumno = value; }
         public string Nombre { get => nombre; set => nombre = value; }

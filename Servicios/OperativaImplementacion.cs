@@ -110,5 +110,14 @@ namespace EduRecuperacionC.Servicios
 
         }
 
+        public void modificarAlumno()
+        {
+
+
+
+
+
+        }
+
     }
 }
